@@ -1,0 +1,17 @@
+<h5 class="well-header">Recent Activity</h5>
+<f:if condition="{projects}" >
+	<f:then>
+		<table class="zebra-striped condensed-table cozy">
+			<f:for each="{projects}" as="project">
+				<tr>
+					<td>
+						<f:link.action action="view" arguments="{project.arguments}">{project.name}</f:link.action>
+					</td>
+				</tr>
+			</f:for>
+		</table>
+	</f:then>
+	<f:else>
+		No Projects yet.
+	</f:else>
+</f:if>
