@@ -32,7 +32,6 @@ use Admin\Annotations as Admin;
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  * @FLOW3\Scope("prototype")
  * @FLOW3\Entity
- * @Admin\Active
  * @Admin\Group("Testcases")
  */
 class Editors extends \Admin\Core\Domain\Magic{
@@ -46,24 +45,28 @@ class Editors extends \Admin\Core\Domain\Magic{
 	/**
 	 * @var string
 	 * @Admin\Editor("Markdown")
+	 * @Admin\Ignore
 	 */
 	protected $markdown;
 	
 	/**
 	 * @var string
 	 * @Admin\Editor("Textile")
+	 * @Admin\Ignore
 	 */
 	protected $textile;
 	
 	/**
 	 * @var string
 	 * @Admin\Editor("BBCode")
+	 * @Admin\Ignore
 	 */
 	protected $bbcode;
 	
 	/**
 	 * @var string
 	 * @Admin\Editor("Wiki")
+	 * @Admin\Ignore
 	 */
 	protected $wiki;
 }

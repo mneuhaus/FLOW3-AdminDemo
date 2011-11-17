@@ -65,49 +65,46 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="span6">
+				<div class="span8">
 					<h3>Adding to an existing FLOW3 Installation</h3>
 					
-					<ol>
-						<li>
-							Download: <a href="#">Admin.zip</a><br />
-						</li>
-						<li>
-							Unpack it to your Packages/Applications directory
-						</li>
-						<li>
-							Activate the Package through the flow3 command line interface:<br />
-							<code>./flow3 package:activate Admin</code>
-						</li>
-					</ol>
+					<pre>cd %FLOW3-Project-Directory%
+git clone git@github.com:mneuhaus/FLOW3-Admin.git Packages/Framework/Admin
+./flow3 package:activate Admin
+./flow3 doctrine:migrate
+./flow3 flow3:cache:flush
+					</pre>
+					
+					<h4>Adding the AdminDemo which powers this site as well:</h4>
+					<pre>cd %FLOW3-Project-Directory%
+git clone git@github.com:mneuhaus/FLOW3-AdminDemo.git Packages/Applications/AdminDemo
+./flow3 package:activate AdminDemo
+./flow3 doctrine:migrate
+./flow3 flow3:cache:flush
+					</pre>
+					
+					<h5>For more info check out the Documentation:</h5>
+					<a href="/admin/doc/" class="btn" style="margin-top:10px;">Documentation</a>
 				</div>
-				<div class="span6">
-					<h3>Download a complete FLOW3 Installation</h3>
+				<div class="span4">
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="span12">
 					<h2>Contributing</h2>
-				</div>
-			</div>
-			<div class="row">
-				<div class="span6">
-					<h3>If you've found an Error:</h3>
-					<p>
-						create an issue on github: 
-						<a href="https://github.com/mneuhaus/FLOW3-Admin/issues">FLOW3-Admin Issues</a>
-					</p>
-				</div>
-				<div class="span6">
-					<h3>If you've created an awesome Widget or something other cool</h3>
-					<p> create a pull-request on github:
-						<a href="https://github.com/mneuhaus/FLOW3-Admin/pulls">Pull Request</a>
+					<p> 
+						Go to GitHub and contribute!
+						<a href="https://github.com/mneuhaus/FLOW3-Admin">GitHub</a>
 					</p>
 				</div>
 			</div>
 			
-			<h2>Screenshot Walkthrough</h2>
+			<div class="row">
+				<div class="span9">
+					<h2>Screenshot Walkthrough</h2>
+				</div>
+			</div>
 			
 			<div class="row">
 				<div class="span9">

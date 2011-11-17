@@ -1,23 +1,23 @@
-Doctrine:
-  Beings:
-    TYPO3\Party\Domain\Model\Person:
-      active: true
-      repository: TYPO3\Party\Domain\Repository\PartyRepository
-      group: CRM
-      properties:
-        electronicAddresses:
-          ignore: true
-        primaryElectronicAddress:
-          label: Primary Address
-
-    TYPO3\Party\Domain\Model\ElectronicAddress:
-      repository: TYPO3\Party\Domain\Repository\PartyRepository
-
-    TYPO3\Party\Domain\Model\PersonName:
-      properties:
-        otherName:
-          ignore: true
-        middleName:
-          ignore: true
-        fullName:
-          ignore: true
+# Doctrine:
+#   Beings:
+#     TYPO3\Party\Domain\Model\Person:
+#       active: true
+#       repository: TYPO3\Party\Domain\Repository\PartyRepository
+#       group: CRM
+#       properties:
+#         electronicAddresses:
+#           ignore: true
+#         primaryElectronicAddress:
+#           label: Primary Address
+# 
+#     TYPO3\Party\Domain\Model\ElectronicAddress:
+#       repository: TYPO3\Party\Domain\Repository\PartyRepository
+# 
+#     TYPO3\Party\Domain\Model\PersonName:
+#       properties:
+#         otherName:
+#           ignore: true
+#         middleName:
+#           ignore: true
+#         fullName:
+#           ignore: true

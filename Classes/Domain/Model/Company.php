@@ -28,12 +28,14 @@ class Company extends \Admin\Core\Domain\Magic {
 	/**
 	 * @var \AdminDemo\Domain\Model\Note
 	 * @ORM\ManyToOne(inversedBy="company")
+	 * @Admin\Ignore
 	 */
 	protected $notes;
 	
 	/**
 	 * @var \AdminDemo\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="company")
+	 * @Admin\Ignore
 	 */
 	protected $addresses;
 	

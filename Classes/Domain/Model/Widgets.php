@@ -77,14 +77,14 @@ class Widgets extends \Admin\Core\Domain\Magic{
 	 * @var \AdminDemo\Domain\Model\Address
 	 * @ORM\ManyToOne(inversedBy="comments")
 	 */
-	protected $tag;
+	protected $address;
 	
 	/**
 	 * @var \Doctrine\Common\Collections\Collection<\AdminDemo\Domain\Model\Address>
 	 * @ORM\ManyToMany(inversedBy="widgets_manytomany")
 	 * @Admin\Ignore("list")
 	 */
-	protected $tags;
+	protected $addresses;
 	
 	
 	/**
