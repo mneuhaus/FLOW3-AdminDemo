@@ -1,0 +1,7 @@
+-
+  name: 'Home'
+  uriPattern: ''
+  defaults:
+    '@action':      'index'
+    '@package':     'AdminDemo'
+    '@controller':  'Standard'
