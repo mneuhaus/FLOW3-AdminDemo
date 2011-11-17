@@ -24,6 +24,9 @@ class StandardController extends \TYPO3\FLOW3\MVC\Controller\ActionController {
 	 */
 	public function indexAction() {
 		\Admin\Core\API::setTitle("Admin Overview");
+		// \Admin\Core\API::addNavigationItem("", "left", array(
+		// 	"action" => 
+		// ));
 	}
 
 }

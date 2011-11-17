@@ -1,9 +1,232 @@
 {namespace a=Admin\ViewHelpers}
 <a:layout name="bootstrap" package="Admin"/>
-<f:section name="actionbar-left"></f:section>
 
-<f:section name="actionbar-right">
-</f:section>
-<f:section name="content">
-	Hello World!
+<f:section name="container">
+	<style type="text/css" media="screen">
+		body{ background-color:#EEE; }
+		.page-header{
+			border-bottom: 1px solid #DDD;
+			-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+			-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+			box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+			background-color: whiteSmoke;
+			padding: 20px 20px 10px;
+			margin: -20px -20px 20px;
+		}
+		.content {
+			background-color: white;
+			padding: 20px;
+			margin: 0 -20px;
+			-webkit-border-radius: 0 0 6px 6px;
+			-moz-border-radius: 0 0 6px 6px;
+			border-radius: 0 0 6px 6px;
+			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+			-moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
+			box-shadow: 0 1px 2px rgba(0,0,0,.15);
+		}
+		.row {margin-bottom:20px; }
+	</style>
+	<div class="container">
+		<div class="content">
+			<div class="page-header">
+				<h1>Admin <small>the FLOW3 Administration Package</small></h1>
+			</div>
+			
+			<div class="row">
+				<div class="span9">
+					<h2>Introduction</h2>
+
+					<p>Inspired by the awesome Django Admin this package tries to port the principles to this great new world that is FLOW3</p>
+					<p>
+						Everybody who has already worked with the Django Admin knows how much tedious work it gets off your back right from the start.
+						Reeinventing proper userinterfaces and interactions from the start everytime doesn't make sense in most cases.<br />
+					</p>
+					<p>Thanks to some of the amazing features in FLOW3, namely the Domain-Driven-Design, Annotations, Aspects and some other features it is finally possible to create an awesome Admin Interface for the PHP world.</p>
+				</div>
+				<div class="span3">
+					<h3>Check out the Demo!</h3>
+					<p>
+						There is a full Demo running here. <br />
+						In fact this Page itself is powered by the Admin package.
+					</p>
+					<p>
+					<ul>
+						<li><strong>Username:</strong> admin</li>
+						<li><strong>Password:</strong> password</li>
+					</ul>
+					</p>
+					<a href="/admin/" class="btn pull-right large primary">Demo</a>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="span12">
+					<h2>Installation</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span6">
+					<h3>Adding to an existing FLOW3 Installation</h3>
+					
+					<ol>
+						<li>
+							Download: <a href="#">Admin.zip</a><br />
+						</li>
+						<li>
+							Unpack it to your Packages/Applications directory
+						</li>
+						<li>
+							Activate the Package through the flow3 command line interface:<br />
+							<code>./flow3 package:activate Admin</code>
+						</li>
+					</ol>
+				</div>
+				<div class="span6">
+					<h3>Download a complete FLOW3 Installation</h3>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="span12">
+					<h2>Contributing</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="span6">
+					<h3>If you've found an Error:</h3>
+					<p>
+						create an issue on github: 
+						<a href="https://github.com/mneuhaus/FLOW3-Admin/issues">FLOW3-Admin Issues</a>
+					</p>
+				</div>
+				<div class="span6">
+					<h3>If you've created an awesome Widget or something other cool</h3>
+					<p> create a pull-request on github:
+						<a href="https://github.com/mneuhaus/FLOW3-Admin/pulls">Pull Request</a>
+					</p>
+				</div>
+			</div>
+			
+			<h2>Screenshot Walkthrough</h2>
+			
+			<div class="row">
+				<div class="span9">
+					<img src="{f:uri.resource(path: 'images/1 Login - Fail.png', package: 'AdminDemo')}" width="700px" alt="1 Login   Fail">
+				</div>
+				<div class="span3">
+					<h2>Login</h2>
+					<ul>
+						<li>Easy and intuitive</li>
+						<li>Generates default User on first launch</li>
+						<li>Errors are displayed through flashmassages</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="span9">
+					<img src="{f:uri.resource(path: 'images/2 Dashboard.png', package: 'AdminDemo')}" width="700px" alt="1 Login   Fail">
+				</div>
+				<div class="span3">
+					<h2>Dashboard</h2>
+					<ul>
+						<li>Topbar Navigation</li>
+						<li>Widgets</li>
+						<li>Sidebar Navigation</li>
+						<li>Uses the awesome <a href="http://twitter.github.com/bootstrap/">Bootstrap</a> Framework for the UI</li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="row">
+				<div class="span9">
+					<img src="{f:uri.resource(path: 'images/3 Address - List.png', package: 'AdminDemo')}" width="700px" alt="1 Login   Fail">
+				</div>
+				<div class="span3">
+					<h2>Listview</h2>
+					<ul>
+						<li>Clean and easy</li>
+						<li>Intelligient Limits (depending on the amount of records)</li>
+						<li>Pagination</li>
+						<li>Sorting</li>
+						<li>
+							Bulk Actions: By default there is an action to delete any number of records.
+							Adding additional Actions is quick and easy.
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span9">
+					<img src="{f:uri.resource(path: 'images/3 Address - Update.png', package: 'AdminDemo')}" width="700px" alt="1 Login   Fail">
+				</div>
+				<div class="span3">
+					<h2>Update</h2>
+					<ul>
+						<li>Clean and easy</li>
+						<li>Intelligient Limits (depending on the amount of records)</li>
+						<li>Pagination</li>
+						<li>Bulk Actions</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span9">
+					<img src="{f:uri.resource(path: 'images/3 Address - Bulk Delete.png', package: 'AdminDemo')}" width="700px" alt="1 Login   Fail">
+				</div>
+				<div class="span3">
+					<h2>Bulk Delete</h2>
+					<ul>
+						<li>Every action can have a seperate View</li>
+						<li>The Delete action shows an confirmation page to delete one or more items</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span9">
+					<img src="{f:uri.resource(path: 'images/4 Roles - Create.png', package: 'AdminDemo')}" width="700px" alt="1 Login   Fail">
+				</div>
+				<div class="span3">
+					<h2>Roles</h2>
+					<ul>
+						<li>Usermanagement is configured through roles</li>
+						<li>you can define any number of roles and assign them to a user</li>
+						<li>you can set policies to grant for roles</li>
+						<li>policies are automatically generated based on available models and actions (including your custom actions)</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span9">
+					<img src="{f:uri.resource(path: 'images/5 Validation - Error.png', package: 'AdminDemo')}" width="700px" alt="1 Login   Fail">
+				</div>
+				<div class="span3">
+					<h2>Validation</h2>
+					<ul>
+						<li>Validation is based on FLOW3 entity validation. You just need to define your validation in your entity and the Admin takes care of the rest!</li>
+						<li>Default actions include (required, e-mail, alphanumeric, number, stringlength, datetime, ...)</li>
+						<li>Custom Validations are easily added as well</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="span9">
+					<img src="{f:uri.resource(path: 'images/6 Widgets - Default.png', package: 'AdminDemo')}" width="700px" alt="1 Login   Fail">
+				</div>
+				<div class="span3">
+					<h2>Widgets</h2>
+					<ul>
+						<li>Widgets are automatically assigned by entity property type</li>
+						<li>Default Widgets include TextField, Textarea, Select, MultiSelect, Upload, RTE </li>
+						<li>Overwriting an widget for a specific model of package is as easy as creating a specific template</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
 </f:section>
