@@ -52,6 +52,7 @@ class Address extends \Admin\Core\Domain\Magic {
 	/**
 	 * @var \AdminDemo\Domain\Model\Company
 	 * @ORM\ManyToOne(inversedBy="adresses")
+	 * @Admin\Ignore("list")
 	 */
 	protected $company;
 	
