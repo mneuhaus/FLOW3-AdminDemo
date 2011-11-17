@@ -46,6 +46,7 @@ class Validation extends \Admin\Core\Domain\Magic{
 	/**
 	 * @var string
 	 * @FLOW3\Validate(type="String")
+	 * @Admin\Ignore
 	 */
 	protected $string;
 	
