@@ -29,7 +29,16 @@
 	<div class="container">
 		<div class="content">
 			<div class="page-header">
-				<h1>Admin <small>the FLOW3 Administration Package</small></h1>
+				<div class="pull-right" style="margin-top:-8px;">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-text="The first alpha of the Admin for FLOW3 has just been released. #FLOW3 #Admin #Bootstrap Check it out:" data-count="vertical" data-via="apocalip">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+				</div>
+				<div class="pull-right" style="margin-top:-6px;margin-right:10px;">
+					<!-- Dieses Tag in den Head-Bereich oder direkt vor dem schließenden Body-Tag einfügen -->
+					<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+					<!-- Dieses Tag dort einfügen, wo die +1-Schaltfläche dargestellt werden soll -->
+					<g:plusone size="tall"></g:plusone>
+				</div>
+				<h1>Admin <small>the FLOW3 Administration Package</small> <span class="label important" style="vertical-align:middle;">Alpha1</span></h1>
 			</div>
 			
 			<div class="row">
@@ -42,6 +51,7 @@
 						Reeinventing proper userinterfaces and interactions from the start everytime doesn't make sense in most cases.<br />
 					</p>
 					<p>Thanks to some of the amazing features in FLOW3, namely the Domain-Driven-Design, Annotations, Aspects and some other features it is finally possible to create an awesome Admin Interface for the PHP world.</p>
+					
 				</div>
 				<div class="span3">
 					<h3>Check out the Demo!</h3>
@@ -66,7 +76,7 @@
 					<h3>Adding to an existing FLOW3 Installation</h3>
 					
 					<pre>cd %FLOW3-Project-Directory%
-git clone git@github.com:mneuhaus/FLOW3-Admin.git Packages/Framework/Admin
+git clone git@github.com:mneuhaus/FLOW3-Admin.git Packages/Application/Admin
 ./flow3 package:activate Admin
 ./flow3 doctrine:migrate
 ./flow3 flow3:cache:flush
@@ -74,7 +84,7 @@ git clone git@github.com:mneuhaus/FLOW3-Admin.git Packages/Framework/Admin
 					
 					<h4>Adding the AdminDemo which powers this site as well:</h4>
 					<pre>cd %FLOW3-Project-Directory%
-git clone git@github.com:mneuhaus/FLOW3-AdminDemo.git Packages/Applications/AdminDemo
+git clone git@github.com:mneuhaus/FLOW3-AdminDemo.git Packages/Application/AdminDemo
 ./flow3 package:activate AdminDemo
 ./flow3 doctrine:migrate
 ./flow3 flow3:cache:flush
@@ -84,6 +94,7 @@ git clone git@github.com:mneuhaus/FLOW3-AdminDemo.git Packages/Applications/Admi
 					<a href="/admin/doc/" class="btn" style="margin-top:10px;">Documentation</a>
 				</div>
 				<div class="span4">
+					<p><b>This version is currently based on FLOW3 1.0. FLOW3 Git Master isn't yet supported because of a change in the PasswordHashingStrategyInterface.</b></p>
 				</div>
 			</div>
 			
