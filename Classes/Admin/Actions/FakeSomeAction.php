@@ -65,13 +65,24 @@ class FakeSomeAction extends \Admin\Core\Actions\AbstractAction {
 							"name" => \AdminDemo\Faker\Company::name()
 						);
 					break;
+				
+				case 'AdminDemo\Domain\Model\Address':
+						$data = array(
+							"street" => \AdminDemo\Faker\Address::streetName(),
+							"housenumber" => \AdminDemo\Faker\Address::numerify("##"),
+							"zip" => \AdminDemo\Faker\Address::zipCode(),
+							"city" => \AdminDemo\Faker\Address::city(),
+							"country" => \AdminDemo\Faker\Address::ukCountry(),
+						);
+					break;
 			
 				default:
 					# code...
 					break;
 			}
 			
-			$result = $this->adapter->createObject($being, $data);
+			if(isset($data))
+				$result = $this->adapter->createObject($being, $data);
 		}
 		
 		$arguments = array(
