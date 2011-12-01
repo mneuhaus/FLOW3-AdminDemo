@@ -9,11 +9,11 @@ namespace AdminDemo\Domain\Repository;
 use TYPO3\FLOW3\Annotations as FLOW3;
 
 /**
- * A repository for Notes
+ * A repository for Variants
  *
  * @FLOW3\Scope("singleton")
  */
-class NoteRepository extends \TYPO3\FLOW3\Persistence\Repository {
+class VariantsRepository extends \TYPO3\FLOW3\Persistence\Repository {
 
 	// add customized methods here
 

@@ -1,23 +1,40 @@
-# Doctrine:
-#   Beings:
-#     TYPO3\Party\Domain\Model\Person:
-#       active: true
-#       repository: TYPO3\Party\Domain\Repository\PartyRepository
-#       group: CRM
-#       properties:
-#         electronicAddresses:
-#           ignore: true
-#         primaryElectronicAddress:
-#           label: Primary Address
-# 
-#     TYPO3\Party\Domain\Model\ElectronicAddress:
-#       repository: TYPO3\Party\Domain\Repository\PartyRepository
-# 
-#     TYPO3\Party\Domain\Model\PersonName:
-#       properties:
-#         otherName:
-#           ignore: true
-#         middleName:
-#           ignore: true
-#         fullName:
-#           ignore: true
+Admin:
+  Beings:
+    TYPO3\Party\Domain\Model\PersonName:
+      Properties:
+        otherName:
+          Ignore: true
+        middleName:
+          Ignore: true
+        fullName:
+          Ignore: true
+          
+    TYPO3\Party\Domain\Model\ElectronicAddress:
+      Properties:
+        approved:
+          Ignore: true
+        identifier:
+          Label: Address
+        usage:
+          Widget: Dropdown
+          OptionsProvider:
+            name: Array
+            options:
+              home: Home
+              work: Work
+        type:
+          Label: Medium
+          Widget: Dropdown
+          OptionsProvider:
+            name: Array
+            options:
+              aim: Aim
+              email: Email
+              gizmo: Gizmo
+              icq: Icq
+              jabber: Jabber
+              msn: Msn
+              sip: Sip
+              skype: Skype
+              url: Url
+              yahoo: Yahoo

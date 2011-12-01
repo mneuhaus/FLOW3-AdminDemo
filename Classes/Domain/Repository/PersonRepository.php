@@ -1,9 +1,9 @@
 <?php
 
-namespace AdminDemo\Domain\Model;
+namespace AdminDemo\Domain\Repository;
 
 /*                                                                        *
- * This script belongs to the FLOW3 package "Contacts".                   *
+ * This script belongs to the FLOW3 package "Blog".                       *
  *                                                                        *
  * It is free software; you can redistribute it and/or modify it under    *
  * the terms of the GNU General Public License as published by the Free   *
@@ -22,45 +22,33 @@ namespace AdminDemo\Domain\Model;
  * The TYPO3 project - inspiring people to share!                         *
  *                                                                        */
 
-use Doctrine\ORM\Mapping as ORM;
 use TYPO3\FLOW3\Annotations as FLOW3;
-use Admin\Annotations as Admin;
 
 /**
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
- * @FLOW3\Scope("prototype")
- * @FLOW3\Entity
- * @Admin\Active
- * @Admin\Group("Testcases")
  */
-class Validation extends \Admin\Core\Domain\Magic{
-
+class PersonRepository extends \TYPO3\FLOW3\Persistence\Repository {
 	/**
-	 * @var string
-	 * @FLOW3\Validate(type="NotEmpty")
+	 * @var \Admin\Core\Helper
+	 * @author Marc Neuhaus <apocalip@gmail.com>
+	 * @FLOW3\Inject
 	 */
-	protected $required;
+	protected $helper;
 	
-	/**
-	 * @var string
-	 * @FLOW3\Validate(type="String")
-	 */
-	#protected $string;
-	
-	/**
-	 * @var string
-	 * @FLOW3\Validate(type="EmailAddress")
-	 */
-	protected $email;
-	
-	/**
-	 * @var string
-	 * @FLOW3\Validate(type="StringLength", options={ "minimum"=1, "maximum"=100 })
-	 */
-	protected $stringlength;
-
+	public function getByCurrentUser(){
+		$user = $this->helper->getUser();
+		if($user){
+#			$query = $this->createQuery();
+#			$query->matching($query->equals("user", $user->getIdentity()));
+#			var_dump($user->getIdentity());
+#			$person = $query->execute()->getFirst();
+#			var_dump($query->count());
+#			return $person;
+			return $this->findOneByUser($user);
+		}
+		return null;
+	}
 }
-
 ?>

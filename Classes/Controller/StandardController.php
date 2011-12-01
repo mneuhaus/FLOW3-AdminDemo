@@ -23,12 +23,20 @@ class StandardController extends \TYPO3\FLOW3\MVC\Controller\ActionController {
 	 * @Admin\Navigation(title="Overview", position="top", priority="10000")
 	 */
 	public function indexAction() {
-		\Admin\Core\API::setTitle("Admin Overview");
-		// \Admin\Core\API::addNavigationItem("", "left", array(
-		// 	"action" => 
-		// ));
+		\Admin\Core\API::setTitle("Welcome to the Home of the FLOW3 Admin Package");
 	}
-
+	
+	/**
+	 * Index action
+	 *
+	 * @param \AdminDemo\Forms\TestForm $form
+	 * @return void
+	 */
+	public function formAction(\AdminDemo\Forms\TestForm $form = null) {
+		\Admin\Core\API::setTitle("Admin Overview");
+		$r = new \AdminDemo\Domain\Repository\AddressRepository();
+		$this->view->assign("objects", $r->findAll());
+	}
 }
 
 ?>

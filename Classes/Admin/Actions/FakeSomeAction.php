@@ -39,8 +39,8 @@ class FakeSomeAction extends \Admin\Core\Actions\AbstractAction {
 	 * @author Marc Neuhaus <mneuhaus@famelo.com>
 	 * */
 	public function canHandle($being, $action = null, $id = false) {
-		if(stristr($being, "AdminDemo\Domain\Model") && $action == "list" && !$id)
-			return true;
+		if(stristr($being, "AdminDemo\Domain\Model") && !$id)
+			return in_array($action, array("list", "create"));
 		return false;
 	}
 	
@@ -75,14 +75,48 @@ class FakeSomeAction extends \Admin\Core\Actions\AbstractAction {
 							"country" => \AdminDemo\Faker\Address::ukCountry(),
 						);
 					break;
-			
+					
+				case 'AdminDemo\Domain\Model\Variants':
+						$data = array(
+							"name" => \AdminDemo\Faker\Lorem::sentence(3),
+							"startdate" => \AdminDemo\Faker\Date::random()->format(\DateTime::W3C),
+							"enddate" => \AdminDemo\Faker\Date::random()->format(\DateTime::W3C),
+							"description" => \AdminDemo\Faker\Lorem::paragraph(4),
+						);
+					break;
+					
+				case 'AdminDemo\Domain\Model\Event':
+						$data = array(
+							"title" => \AdminDemo\Faker\Lorem::sentence(3),
+							"startdate" => \AdminDemo\Faker\Date::random()->format(\DateTime::W3C),
+							"enddate" => \AdminDemo\Faker\Date::random()->format(\DateTime::W3C)
+						);
+					break;
+					
+				case 'AdminDemo\Domain\Model\Person':
+						$data = array(
+							"firstname" => \AdminDemo\Faker\Name::firstName(),
+							"lastname" => \AdminDemo\Faker\Name::lastName()
+						);
+					break;
+					
+				case 'AdminDemo\Domain\Model\Message':
+						$data = array(
+							"sender" => \AdminDemo\Faker\Entity::getRandom("Person")->getIdentity(),
+							"receipients" => array(\AdminDemo\Faker\Entity::getRandom("Person")->getIdentity()),
+							"subject" => \AdminDemo\Faker\Lorem::sentence(5),
+							"content" => \AdminDemo\Faker\Lorem::paragraph(4),
+						);
+					break;
+						
 				default:
 					# code...
 					break;
 			}
 			
-			if(isset($data))
+			if(isset($data)){
 				$result = $this->adapter->createObject($being, $data);
+			}
 		}
 		
 		$arguments = array(
@@ -90,5 +124,7 @@ class FakeSomeAction extends \Admin\Core\Actions\AbstractAction {
 		);
 		$this->controller->redirect('list', NULL, NULL, $arguments);
 	}
+	
+	
 }
 ?>

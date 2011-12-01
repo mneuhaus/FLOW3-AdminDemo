@@ -29,11 +29,13 @@ class Address extends \Admin\Core\Domain\Magic {
 	
 	/**
 	 * @var string
+	 * @Admin\Ignore
 	 */
 	protected $housenumber;
 	
 	/**
 	 * @var string
+	 * @Admin\Ignore
 	 */
 	protected $zip;
 	
@@ -46,15 +48,9 @@ class Address extends \Admin\Core\Domain\Magic {
 	
 	/**
 	 * @var string
+	 * @Admin\Filter
 	 */
 	protected $country;
-	
-	/**
-	 * @var \AdminDemo\Domain\Model\Company
-	 * @ORM\ManyToOne(inversedBy="adresses")
-	 * @Admin\Ignore("list")
-	 */
-	protected $company;
 	
 	
 	public function __toString(){

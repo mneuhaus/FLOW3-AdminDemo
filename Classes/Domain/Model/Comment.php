@@ -1,5 +1,5 @@
 <?php
-namespace AdminDemo\Domain\Repository;
+namespace AdminDemo\Domain\Model;
 
 /*                                                                        *
  * This script belongs to the FLOW3 package "AdminDemo".                  *
@@ -7,15 +7,20 @@ namespace AdminDemo\Domain\Repository;
  *                                                                        */
 
 use TYPO3\FLOW3\Annotations as FLOW3;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * A repository for Todos
+ * A Comment
  *
- * @FLOW3\Scope("singleton")
+ * @FLOW3\Scope("prototype")
+ * @FLOW3\Entity
  */
-class TodoRepository extends \TYPO3\FLOW3\Persistence\Repository {
-
-	// add customized methods here
-
+class Comment extends \Admin\Core\Domain\Magic {
+	
+	/**
+	 * @var string
+	 */
+	protected $content;
+	
 }
 ?>

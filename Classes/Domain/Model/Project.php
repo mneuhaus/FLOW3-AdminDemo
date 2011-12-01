@@ -34,10 +34,19 @@ class Project extends \Admin\Core\Domain\Magic {
 	protected $description;
 	
 	/**
-	 * @var \Doctrine\Common\Collections\ArrayCollection<\Admin\Security\User>
-	 * @ORM\ManyToMany
+	 * @var \Doctrine\Common\Collections\ArrayCollection<\AdminDemo\Domain\Model\Person>
+	 * @ORM\ManyToMany(inversedBy="projects")
 	 * @Admin\Ignore("list")
+	 * @Admin\Widget("Chosen")
 	 */
-	protected $users;
+	protected $persons;
+	
+	/**
+	 * @var \Doctrine\Common\Collections\Collection<\AdminDemo\Domain\Model\Task>
+	 * @ORM\ManyToMany(inversedBy="project", cascade={"all"})
+	 * @Admin\Inline
+	 * @Admin\Variant("Tabular")
+	 */
+	protected $tasks;
 }
 ?>

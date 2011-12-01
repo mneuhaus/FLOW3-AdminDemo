@@ -1,0 +1,7 @@
+{namespace a=Admin\ViewHelpers}
+<img src="{being.variantMapping.image}" />
+<h3>{being.subject}</h3>
+<p><strong>From</strong> {being.sender} <strong>to</strong> {being.receipients} </p>
+<p>
+	<f:format.nl2br>{being.variantMapping.content}</f:format.nl2br>
+</p>

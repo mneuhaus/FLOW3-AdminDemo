@@ -34,7 +34,7 @@ use Admin\Annotations as Admin;
  * @FLOW3\Entity
  * @Admin\Active
  * @Admin\Group("Testcases")
- * @Admin\Set(title="Simple Annotations", properties="name, ignoreCompletly, ignoreListView, widget")
+ * @Admin\Set(title="Simple Annotations", properties="name, ignoreCompletly, ignoreListView, widget, optionsProvider")
  * @Admin\Set(title="Relation Annotations", properties="address, addresses")
  * @Admin\Set(title="Inline Annotations", properties="addressStacked, addressTabular, addressesStacked, addressesTabular")
  */
@@ -69,17 +69,31 @@ class Annotations extends \Admin\Core\Domain\Magic{
 	 */
 	protected $widget;
 	
+	/**
+	 * @var string
+	 * @Admin\Widget("Dropdown")
+	 * @Admin\OptionsProvider(name="Array", property="options")
+	 * @Admin\Infotext("This field uses the ArrayOptionsProvider to give choices which will be stored in a simple string field")
+	 */
+	protected $optionsProvider;
+	public $options = array(
+		"Hello" => "World",
+		"Hell" => "Yea"
+	);
+	
 	
 	
 	/**
 	 * @var \AdminDemo\Domain\Model\Address
 	 * @ORM\ManyToOne()
+	 * @Admin\Infotext("This i a simple ManyToOne relation to the Address Entity")
 	 */
 	protected $address;
 	
 	/**
 	 * @var \Doctrine\Common\Collections\Collection<\AdminDemo\Domain\Model\Address>
 	 * @ORM\ManyToMany()
+	 * @Admin\Infotext("This is a simple ManyToMany relation to the Address Entity")
 	 */
 	protected $addresses;
 	

@@ -34,9 +34,9 @@ use Admin\Annotations as Admin;
  * @FLOW3\Entity
  * @Admin\Active
  * @Admin\Group("Testcases")
- * @Admin\Set(title="Default Types", properties="string,integer,float,boolean,datetime,resource,tag,tags")
+ * @Admin\Set(title="Default Types", properties="string,integer,float,boolean,date,time,datetime,resource,tag,tags")
  * @Admin\Set(title="Textinput", properties="textarea,autoexpand,fullrte,markdown")
- * @Admin\Set(title="Inline", properties="widget")
+ * @Admin\Set(title="Relations", properties="address, addresses, addressesChosen")
  */
 class Widgets extends \Admin\Core\Domain\Magic{
 	/**
@@ -59,7 +59,19 @@ class Widgets extends \Admin\Core\Domain\Magic{
 	/**
 	 * @var boolean
 	 */
-	protected $boolean;
+	protected $boolean = false;
+	
+	/**
+	 * @var \DateTime
+	 * @Admin\Representation(datetimeFormat="Y-m-d")
+	 */
+	protected $date;
+	
+	/**
+	 * @var \DateTime
+	 * @Admin\Representation(datetimeFormat="H:i:s")
+	 */
+	protected $time;
 	
 	/**
 	 * @var \DateTime
@@ -69,7 +81,6 @@ class Widgets extends \Admin\Core\Domain\Magic{
 	/**
 	 * @var \TYPO3\FLOW3\Resource\Resource
 	 * @ORM\OneToOne
-	 * @FLOW3\Validate(type="NotEmpty")
 	 */
 	protected $resource;
 	
@@ -86,6 +97,13 @@ class Widgets extends \Admin\Core\Domain\Magic{
 	 */
 	protected $addresses;
 	
+	/**
+	 * @var \Doctrine\Common\Collections\Collection<\AdminDemo\Domain\Model\Address>
+	 * @ORM\ManyToMany(inversedBy="widgets_manytomany")
+	 * @Admin\Ignore("list")
+	 * @Admin\Widget("Chosen")
+	 */
+	protected $addressesChosen;
 	
 	/**
 	 * @var string
@@ -104,16 +122,11 @@ class Widgets extends \Admin\Core\Domain\Magic{
 	 * @Admin\Editor("Markdown")
 	 */
 	protected $markdown;
-	
-	/**
-	 * @var \AdminDemo\Domain\Model\Address
-	 * @ORM\ManyToOne(inversedBy="comments")
-	 * @Admin\Inline
-	 */
-	protected $info;
 
     public function __construct(){
-#		$this->tags = new \SplObjectStorage();
+		$this->date = new \DateTime();
+		$this->time = new \DateTime();
+		$this->datetime = new \DateTime();
     }
 }
 

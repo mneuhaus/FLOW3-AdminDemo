@@ -11,31 +11,40 @@ use TYPO3\FLOW3\Annotations as FLOW3;
 use Admin\Annotations as Admin;
 
 /**
- * A Todo
  *
  * @FLOW3\Scope("prototype")
  * @FLOW3\Entity
+ * @Admin\Active
+ * @Admin\Group("CRM")
+ * @Admin\Label("Calendar")
+ * @Admin\Variant(variant="Calendar", options="Calendar, List")
+ * @Admin\VariantMapping(start="startdate", end="enddate")
  */
-class Todo {
+class Event extends \Admin\Core\Domain\Magic {
+	
 	/**
 	 * @var string
 	 * @FLOW3\Validate(type="String")
 	 * @FLOW3\Validate(type="NotEmpty")
 	 */
-	protected $name;
+	protected $title;
 	
 	/**
-	 * @var string
-	 * @Admin\Widget("Textarea")
+	 * @var \DateTime
 	 */
-	protected $description;
+	protected $startdate;
 	
 	/**
-	 * @var \Doctrine\Common\Collections\ArrayCollection<\AdminDemo\Domain\Model\Project>
+	 * @var \DateTime
+	 */
+	protected $enddate;
+	
+	/**
+	 * @var \Doctrine\Common\Collections\ArrayCollection<\AdminDemo\Domain\Model\Person>
 	 * @ORM\ManyToMany
 	 * @Admin\Ignore("list")
+	 * @Admin\Widget("Chosen")
 	 */
-	protected $projects;
-	
+	protected $persons;
 }
 ?>

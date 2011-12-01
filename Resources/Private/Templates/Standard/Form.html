@@ -1,0 +1,26 @@
+{namespace a=Admin\ViewHelpers}
+<a:layout name="Bootstrap" package="Admin"/>
+
+<f:section name="container">
+	<div class="box centered">
+		<h3 class="box-header">Create a new {being.shortName}</h3>
+		<div>
+			
+			<f:form method="post" action="form" fieldNamePrefix="form" enctype="multipart/form-data" class="form-horizontal">
+				
+				<a:being className="AdminDemo\Forms\TestForm">
+					<a:form.fields being="{being}" />
+				</a:being>
+				
+				<div class="actions pull-left">
+					<f:link.action action="list" arguments="{being: being.class}" class="btn">
+						Cancel
+					</f:link.action>
+				</div>
+				<div class="actions pull-right">
+					<input type="submit" name="create" value="Create" class="btn primary"/>
+				</div>
+			</f:form>
+		</div>
+	</div>
+</f:section>
