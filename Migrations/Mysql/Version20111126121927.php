@@ -31,7 +31,7 @@ class Version20111126121927 extends AbstractMigration {
 		$this->addSql("ALTER TABLE admindemo_domain_model_address DROP company");
 		$this->addSql("ALTER TABLE admindemo_domain_model_annotations ADD optionsprovider VARCHAR(255) DEFAULT NULL");
 		$this->addSql("ALTER TABLE admindemo_domain_model_message ADD sender VARCHAR(40) DEFAULT NULL, ADD subject VARCHAR(255) DEFAULT NULL, ADD content VARCHAR(255) DEFAULT NULL");
-		$this->addSql("ALTER TABLE admindemo_domain_model_message ADD CONSTRAINT FK_8BED37085F004ACF FOREIGN KEY (sender) REFERENCES admindemo_domain_model_person(flow3_persistence_identifier)");
+#		$this->addSql("ALTER TABLE admindemo_domain_model_message ADD CONSTRAINT FK_8BED37085F004ACF FOREIGN KEY (sender) REFERENCES admindemo_domain_model_person(flow3_persistence_identifier)");
 		$this->addSql("ALTER TABLE admindemo_domain_model_message ADD CONSTRAINT FK_8BED370821E3D446 FOREIGN KEY (flow3_persistence_identifier) REFERENCES admin_core_domain_magic(flow3_persistence_identifier) ON DELETE CASCADE");
 		$this->addSql("CREATE INDEX IDX_8BED37085F004ACF ON admindemo_domain_model_message (sender)");
 		$this->addSql("ALTER TABLE admindemo_domain_model_widgets DROP FOREIGN KEY FK_A008E3B6CB893157");
