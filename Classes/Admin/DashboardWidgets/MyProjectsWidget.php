@@ -32,17 +32,13 @@ use TYPO3\FLOW3\Annotations as FLOW3;
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  */
 class MyProjectsWidget extends \Admin\Core\DashboardWidgets\AbstractDashboardWidget {
-	/**
-	 * @var \Admin\Core\Helper
-	 * @FLOW3\Inject
-	 */
-	protected $helper;
 	
 	public function initializeWidget() {
 		$query = $this->objectManager->get("\AdminDemo\Domain\Repository\ProjectRepository")->createQuery();
+		$securityManager = $this->objectManager->get("\Admin\Security\SecurityManager");
 		
 		$query->setLimit("10");
-		$query->matching($query->contains("users", $this->helper->getUser()));
+		$query->matching($query->contains("users", $securityManager->getUser()));
 		
 		$projects = $query->execute();
 		$this->view->assign("projects", $projects);

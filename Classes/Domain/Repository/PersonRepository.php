@@ -31,14 +31,14 @@ use TYPO3\FLOW3\Annotations as FLOW3;
  */
 class PersonRepository extends \TYPO3\FLOW3\Persistence\Repository {
 	/**
-	 * @var \Admin\Core\Helper
+	 * @var \Admin\Security\SecurityManager
 	 * @author Marc Neuhaus <apocalip@gmail.com>
 	 * @FLOW3\Inject
 	 */
-	protected $helper;
+	protected $securityManager;
 	
 	public function getByCurrentUser(){
-		$user = $this->helper->getUser();
+		$user = $this->securityManager->getUser();
 		if($user){
 #			$query = $this->createQuery();
 #			$query->matching($query->equals("user", $user->getIdentity()));
