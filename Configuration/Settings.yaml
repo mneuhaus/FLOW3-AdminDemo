@@ -1,4 +1,6 @@
 Admin:
+  GoogleAnalytics: UA-27105965-1
+  TwitterMessage: Check it out!
   Beings:
     TYPO3\Party\Domain\Model\PersonName:
       Properties:
