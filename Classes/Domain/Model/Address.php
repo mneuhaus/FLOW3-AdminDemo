@@ -24,6 +24,7 @@ class Address extends \Admin\Core\Domain\Magic {
 	 * @var string
 	 * @FLOW3\Validate(type="String")
 	 * @FLOW3\Validate(type="NotEmpty")
+	 * @Admin\Search
 	 */
 	protected $street;
 	
