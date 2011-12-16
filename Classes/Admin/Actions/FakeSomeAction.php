@@ -120,9 +120,9 @@ class FakeSomeAction extends \Admin\Core\Actions\AbstractAction {
 		}
 		
 		$arguments = array(
-			"being" => $being
+			"being" => \Admin\Core\API::get("classShortNames", $being)
 		);
-		$this->controller->redirect('list', NULL, NULL, $arguments);
+		$this->controller->redirect('list', "standard", "admin", $arguments);
 	}
 	
 	
