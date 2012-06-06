@@ -30,13 +30,11 @@ class Address extends \Admin\Core\Domain\Magic {
 	
 	/**
 	 * @var string
-	 * @Admin\Ignore
 	 */
 	protected $housenumber;
 	
 	/**
 	 * @var string
-	 * @Admin\Ignore
 	 */
 	protected $zip;
 	

@@ -28,6 +28,7 @@ use TYPO3\FLOW3\Annotations as FLOW3;
  *
  * @copyright Copyright belongs to the respective authors
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
+ * @FLOW3\Scope("singleton")
  */
 class PersonRepository extends \TYPO3\FLOW3\Persistence\Repository {
 	/**
